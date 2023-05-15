@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Home from "./views/Home";
 import Office from "./views/Office";
-import { analytics } from "../firebase";
 import BottomStart from "./views/BottomStart";
 export default function App() {
   console.log(import.meta.env)

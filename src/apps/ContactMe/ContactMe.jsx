@@ -3,8 +3,6 @@ import { WindowContent, Button, Toolbar, Panel, Avatar, TextInput } from "react9
 import useForm, { CheckForm } from "../../hooks/useForm";
 import AlertWin from "../AlertWindow"
 import useStore from "../../store";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "../../../firebase";
 export default function ContactMe(props) {
     const AddWindow = useStore((state) => state.AddWindow);
     const onError = (text) => {
@@ -95,12 +93,7 @@ export default function ContactMe(props) {
                         Send
                     </Button>
                 </div>
-
-
             </WindowContent>
-            {/* <Panel variant="well" className="footer">
-                Put some useful informations here
-            </Panel> */}
         </div>
     );
 }
