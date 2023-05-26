@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { WindowContent, Button, Toolbar, Cutout, Panel, Separator, Slider } from "react95";
+import { WindowContent, Button, Toolbar,  Panel, Separator, Slider } from "react95";
 import playIcon from "../../assets/icons/play.png"
 import pauseIcon from "../../assets/icons/pause.png"
 import stopIcon from "../../assets/icons/stop.png"
-import ejectIcon from "../../assets/icons/eject.png"
 import backskip from "../../assets/icons/backskip.png"
 import backseek from "../../assets/icons/backseek.png"
 import forwardseek from "../../assets/icons/forwardseek.png"

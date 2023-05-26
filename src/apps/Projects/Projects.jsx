@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { WindowContent, Button, Toolbar, Cutout, Panel, Frame } from "react95";
 import useStore from "../../store";
-import Game from "../Game/Game";
 
 let observer;
 
 export default function AboutMe(props) {
+  const [isMobile, setIsMobile] = useState(false);
+
   const windowRef = useRef();
   const AddWindow = useStore((state) => state.AddWindow);
   const [windowHeight, setWindowHeight] = useState(0);
@@ -28,6 +29,31 @@ export default function AboutMe(props) {
       }
     };
   }, [windowRef.current]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Припустимо, що ширина 768px вважається мобільним пристроєм
+    };
+
+    handleResize(); // Викликаємо один раз при завантаженні компонента
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleBodyOverflow = () => {
+      document.body.style.overflow = "hidden";
+    };
+
+    handleBodyOverflow(); // Викликаємо один раз при завантаженні компонента
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
 
   return (
     <div style={{ height: "100%" }} ref={windowRef}>
@@ -52,22 +78,26 @@ export default function AboutMe(props) {
         >
           <div
             style={{
-              paddingLeft: 10,
-              paddingRight: 10,
-              alignContent: "center",
-              justifyContent: "center",
+              margin: "0 auto",
               display: "flex",
-              flexWrap: "wrap",
-              gap: 15,
+              justifyContent: "center",
+              height: "100%",
+              width: "94%",
+              overflow: "hidden",
             }}
           >
-            <iframe src="https://car-game-main.vercel.app/" width="100%" height="535" />
+            {isMobile ? (
+              <iframe src="https://google.com" height="100%" width="100%" />
+            ) : (
+              <iframe
+                src="https://car-game-main.vercel.app/"
+                height="100%"
+                width="100%"
+              />
+            )}
           </div>
         </Cutout>
       </WindowContent>
-      {/* <Panel variant="well" className="footer">
-          Put some useful informations here
-        </Panel> */}
     </div>
   );
 }
