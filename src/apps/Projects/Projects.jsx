@@ -87,7 +87,7 @@ export default function AboutMe(props) {
             }}
           >
             {isMobile ? (
-              <iframe src="https://google.com" height="100%" width="100%" />
+              <iframe src="https://car-game-mobile.vercel.app/" height="100%" width="100%" />
             ) : (
               <iframe
                 src="https://car-game-main.vercel.app/"
