@@ -1,5 +1,5 @@
 import React from "react";
-import { WindowContent, Button, Toolbar, Panel, Avatar, TextInput } from "react95";
+import { WindowContent, Button, Toolbar,  TextInput } from "react95";
 import useForm, { CheckForm } from "../../hooks/useForm";
 import AlertWin from "../AlertWindow"
 import useStore from "../../store";

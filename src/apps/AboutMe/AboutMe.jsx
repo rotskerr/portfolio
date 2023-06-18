@@ -2,7 +2,26 @@ import React from "react";
 import { WindowContent, Button, Toolbar, Panel, Avatar, Anchor } from "react95";
 import PorfilePhoto from "../../assets/images/PorfilePhoto.jpg";
 import Githubicon from "../../assets/images/githubicon.png";
+import { useEffect, useState } from "react";
+import axios from "axios";
 export default function AboutMe(props) {
+  const [text, setText] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("https://rotskerr.s-host.net/api/desktop");
+        setText(response.data[0].text);
+        console.log(response);
+      } catch (error) {
+        console.error("Error fetching data from API:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+
   return (
     <div>
       <Toolbar>
@@ -28,18 +47,12 @@ export default function AboutMe(props) {
         </div>
 
         <h1>Привіт! Я Влад.</h1>
-        <p>
-          Я ентузіаст, швидко вчуся і пристрасно люблю свою справу
-          <br />
-          <strong>Front End веброзробник</strong>.<br /> Прагнете вивчати нові
-          технології та навички і застосовувати їх у реальному світі. Люблю
-          вирішувати проблеми та знаходити креативні рішення і завжди готовий до
-          нові виклики.
-        </p>
+          <p>{text}</p>
+          
 
         <div style={{ display: "flex", gap: 20 }}>
           <Anchor
-            href="/"
+            href="https://github.com/rotskerr"
             target="_blank"
             style={{ display: "flex", alignItems: "center", gap: 10 }}
           >

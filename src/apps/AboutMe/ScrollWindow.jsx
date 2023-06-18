@@ -45,15 +45,13 @@ export default function AboutMe(props) {
       <WindowContent style={{ hight: "100%" }}>
         <Cutout style={{ backgroundColor: "white", height: windowHight != 0 ? windowHight : "200px", overflow: "hidden" }}>
           <div>
-            <p>Enthusiastic, fast learner, and passionate Full Stack Web Developer. Eager to learn new</p>
-            <p>technologies and skills and apply them in the real world. I love solving problems and finding</p>
-            <p>creative solutions and am always up for new challenges</p>
+            <p>Ентузіаст, який швидко навчається та пристрасний Frontend веброзробник. Прагнете вивчати нове</p>
+            <p>технології та навички і застосовувати їх у реальному світі. Я люблю вирішувати проблеми та знаходити</p>
+            <p>творчі рішення і завжди готовий до нових викликів</p>
           </div>
         </Cutout>
       </WindowContent>
-      {/* <Panel variant="well" className="footer">
-          Put some useful informations here
-        </Panel> */}
+      
     </div>
 
   );
