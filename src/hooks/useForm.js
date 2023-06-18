@@ -7,10 +7,7 @@ const CheckForm = (data) => {
         Errors.push("Invalid Email")
     }
 
-    else if (data.title.length < 1) {
-        Errors.push("Invalid Title")
-    }
-    else if (data.msg.length < 1) {
+    else if (data.text.length < 1) {
         Errors.push("Invalid Massage")
     }
     return Errors
